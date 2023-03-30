@@ -6,24 +6,49 @@ root.title("Calculator")
 # Make the window resizable false
 root.resizable(False,False)
 def onClick(number):
-    global number_one
-    number_one=e_result.get()+str(number)
+    current=e_result.get()
     e_result.delete(0,END)
-    e_result.insert(0,number_one)
-
+    e_result.insert(0,current+str(number))
 def Clear():
     e_result.delete(0, END)
 
 def btn_add():
-    pass
+    global equation
+    global number_one
+    equation="+"
+    number_one=float(e_result.get())
+    e_result.delete(0,END)
 def btn_sub():
-    pass
+    global equation
+    global number_one
+    equation="-"
+    number_one=float(e_result.get())
+    e_result.delete(0,END)
 def btn_div():
-    pass
+    global equation
+    global number_one
+    equation="/"
+    number_one=float(e_result.get())
+    e_result.delete(0,END)
 def btn_multi():
-    pass
+    global equation
+    global number_one
+    equation="*"
+    number_one=float(e_result.get())
+    e_result.delete(0,END)
 def btn_result():
-    pass
+    global number_one
+    number_two=e_result.get()
+    e_result.delete(0,END)
+    if equation == "+":
+        e_result.insert(0,str(number_one + float(number_two)))
+    elif equation == "-":
+        e_result.insert(0,str(number_one - float(number_two)))
+    elif equation == "*":
+        e_result.insert(0,str(number_one * float(number_two)))
+    elif equation == "/":
+        e_result.insert(0,str(number_one / float(number_two)))
+
 def btn_proc():
     pass
 
@@ -48,7 +73,7 @@ btn_clear = Button(root,height= 2, width=5, text="C", command=Clear)
 btn_off = Button(root,height= 2, width=5, text="OFF", command=root.quit)
 btn_result = Button(root,height= 2, width=5, text="=", command=btn_result)
 btn_proc = Button(root,height= 2, width=5, text="%", command=btn_proc)
-btn_dot = Button(root,height= 2, width=5, text=",", command=lambda:onClick(","))
+btn_dot = Button(root,height= 2, width=5, text=",", command=lambda:onClick("."))
 
 # Element Position
 e_result.grid(row=0, column=0,columnspan=4, sticky=W+E)
