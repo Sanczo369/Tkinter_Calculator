@@ -50,8 +50,11 @@ def btn_result():
         e_result.insert(0,str(number_one / float(number_two)))
 
 def btn_proc():
-    pass
-
+    global number_one
+    number_two=float(e_result.get())
+    resul=(number_one*number_two)/100
+    e_result.delete(0,END)
+    e_result.insert(0,str(resul))
 
 # Define Element
 e_result = Entry(root, bg="#FFF", width=5, font=("Arial",20))
