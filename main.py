@@ -1,4 +1,5 @@
 from tkinter import *
+import math
 root = Tk()
 root.iconbitmap('logo.ico')
 root.title("Calculator")
@@ -11,7 +12,6 @@ def onClick(number):
     e_result.insert(0,current+str(number))
 def Clear():
     e_result.delete(0, END)
-
 def btn_add():
     global equation
     global number_one
@@ -41,21 +41,69 @@ def btn_result():
     number_two=e_result.get()
     e_result.delete(0,END)
     if equation == "+":
-        e_result.insert(0,str(number_one + float(number_two)))
+        e_result.insert(0,str(round(number_one + float(number_two), 13)))
     elif equation == "-":
-        e_result.insert(0,str(number_one - float(number_two)))
+        e_result.insert(0,str(round(number_one - float(number_two), 13)))
     elif equation == "*":
-        e_result.insert(0,str(number_one * float(number_two)))
+        e_result.insert(0,str(round(number_one * float(number_two), 13)))
     elif equation == "/":
-        e_result.insert(0,str(number_one / float(number_two)))
-
+        e_result.insert(0,str(round(number_one / float(number_two), 13)))
+    elif equation == "xy":
+        e_result.insert(0,str(round(number_one ** float(number_two), 13)))
 def btn_proc():
     global number_one
     number_two=float(e_result.get())
     resul=(number_one*number_two)/100
     e_result.delete(0,END)
     e_result.insert(0,str(resul))
+def btn_pi():
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.pi, 13)))
+def btn_e():
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.e, 13)))
+def btn_abs():
+    current = float(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(abs(current), 13)))
+def btn_n():
+    current=int(e_result.get())
+    e_result.delete(0,END)
+    result=1
+    for i in range(1,current+1):
+        result*=i
+    e_result.insert(0,str(result))
+def btn_ln():
+    current = int(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.log(current), 13)))
+def btn_log():
+    current = int(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.log10(current), 13)))
+def btn_tenx():
+    current=int(e_result.get())
+    e_result.delete(0,END)
+    result=1
+    for i in range(current):
+        result*=10
+    e_result.insert(0,str(result))
+def btn_x():
+    current=int(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(current**2, 13)))
 
+def btn_xy():
+    global equation
+    global number_one
+    equation="xy"
+    number_one=float(e_result.get())
+    e_result.delete(0,END)
+
+def btn_ex():
+    current=int(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.e**current, 13)))
 # Define Element
 e_result = Entry(root, bg="#FFF", width=5, font=("Arial",20))
 btn_1 = Button(root,height= 2, width=5, text="1", command=lambda:onClick(1))
@@ -77,17 +125,16 @@ btn_off = Button(root,height= 2, width=5, text="OFF", command=root.quit)
 btn_result = Button(root,height= 2, width=5, text="=", command=btn_result)
 btn_proc = Button(root,height= 2, width=5, text="%", command=btn_proc)
 btn_dot = Button(root,height= 2, width=5, text=",", command=lambda:onClick("."))
-
-btn_ln = Button(root,height= 2, width=5, text="ln", command=root.quit)
-btn_log = Button(root,height= 2, width=5, text="log", command=root.quit)
-btn_tenx = Button(root,height= 2, width=5, text="10^", command=root.quit)
-btn_x = Button(root,height= 2, width=5, text="x^2", command=root.quit)
-btn_pi = Button(root,height= 2, width=5, text="π", command=root.quit)
-btn_e = Button(root,height= 2, width=5, text="e", command=root.quit)
-btn_abs = Button(root,height= 2, width=5, text="|x|", command=root.quit)
-btn_n = Button(root,height= 2, width=5, text="n!", command=root.quit)
-btn_xy = Button(root,height= 2, width=5, text="x^y", command=root.quit)
-btn_ex = Button(root,height= 2, width=5, text="e^x", command=root.quit)
+btn_ln = Button(root,height= 2, width=5, text="ln", command=btn_ln)
+btn_log = Button(root,height= 2, width=5, text="log", command=btn_log)
+btn_tenx = Button(root,height= 2, width=5, text="10^", command=btn_tenx)
+btn_x = Button(root,height= 2, width=5, text="x^2", command=btn_x)
+btn_pi = Button(root,height= 2, width=5, text="π", command=btn_pi)
+btn_e = Button(root,height= 2, width=5, text="e", command=btn_e)
+btn_abs = Button(root,height= 2, width=5, text="|x|", command=btn_abs)
+btn_n = Button(root,height= 2, width=5, text="n!", command=btn_n)
+btn_xy = Button(root,height= 2, width=5, text="x^y", command=btn_xy)
+btn_ex = Button(root,height= 2, width=5, text="e^x", command=btn_ex)
 
 # Element Position
 e_result.grid(row=0, column=0,columnspan=5, sticky=W+E)
@@ -97,7 +144,6 @@ btn_n.grid(row=1, column=1)
 btn_pi.grid(row=1, column=2)
 btn_e.grid(row=1, column=3)
 btn_ex.grid(row=1, column=4)
-
 
 btn_x.grid(row=2, column=0)
 btn_off.grid(row=2, column=1)
