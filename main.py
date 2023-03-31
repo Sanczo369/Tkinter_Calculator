@@ -78,6 +78,17 @@ btn_result = Button(root,height= 2, width=5, text="=", command=btn_result)
 btn_proc = Button(root,height= 2, width=5, text="%", command=btn_proc)
 btn_dot = Button(root,height= 2, width=5, text=",", command=lambda:onClick("."))
 
+btn_ln = Button(root,height= 2, width=5, text="ln", command=root.quit)
+btn_log = Button(root,height= 2, width=5, text="log", command=root.quit)
+btn_ten = Button(root,height= 2, width=5, text="10^", command=root.quit)
+btn_x = Button(root,height= 2, width=5, text="x^2", command=root.quit)
+btn_pi = Button(root,height= 2, width=5, text="π", command=root.quit)
+btn_e = Button(root,height= 2, width=5, text="e", command=root.quit)
+btn_abs = Button(root,height= 2, width=5, text="|x|", command=root.quit)
+btn_n = Button(root,height= 2, width=5, text="n!", command=root.quit)
+btn_xy = Button(root,height= 2, width=5, text="x^y", command=root.quit)
+btn_ex = Button(root,height= 2, width=5, text="e^x", command=root.quit)
+
 # Element Position
 e_result.grid(row=0, column=0,columnspan=4, sticky=W+E)
 
