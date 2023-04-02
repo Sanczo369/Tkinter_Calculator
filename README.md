@@ -24,3 +24,7 @@ The name Tkinter comes from Tk interface. Tkinter was written by Steen Lumholt a
 - Absolute value (|x|)
 - Natural logarithm (ln())
 - Natural logarithm of 10 (log())
+- Sine (sin())
+- Cosine (cos())
+- Tangent (tg())
+- Cotangent (ctg())
