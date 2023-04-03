@@ -104,6 +104,23 @@ def btn_ex():
     current=int(e_result.get())
     e_result.delete(0,END)
     e_result.insert(0,str(round(math.e**current, 13)))
+
+def btn_sin():
+    current = float(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.sin(current), 13)))
+def btn_cos():
+    current = float(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.cos(current), 13)))
+def btn_tg():
+    current = float(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(math.tan(current), 13)))
+def btn_ctg():
+    current = float(e_result.get())
+    e_result.delete(0,END)
+    e_result.insert(0,str(round(1/math.tan(current), 13)))
 # Define Element
 e_result = Entry(root, bg="#FFF", width=5, font=("Arial",20))
 btn_1 = Button(root,height= 2, width=5, text="1", command=lambda:onClick(1))
@@ -136,10 +153,10 @@ btn_abs = Button(root,height= 2, width=5, text="|x|", command=btn_abs)
 btn_n = Button(root,height= 2, width=5, text="n!", command=btn_n)
 btn_xy = Button(root,height= 2, width=5, text="x^y", command=btn_xy)
 btn_ex = Button(root,height= 2, width=5, text="e^x", command=btn_ex)
-btn_sin = Button(root,height= 2, width=5, text="sin()", command=root.quit)
-btn_cos = Button(root,height= 2, width=5, text="cos()", command=root.quit)
-btn_tg = Button(root,height= 2, width=5, text="tg()", command=root.quit)
-btn_ctg = Button(root,height= 2, width=5, text="ctg()", command=root.quit)
+btn_sin = Button(root,height= 2, width=5, text="sin()", command=btn_sin)
+btn_cos = Button(root,height= 2, width=5, text="cos()", command=btn_cos)
+btn_tg = Button(root,height= 2, width=5, text="tg()", command=btn_tg)
+btn_ctg = Button(root,height= 2, width=5, text="ctg()", command=btn_ctg)
 btn_sqrt = Button(root,height= 2, width=5, text="√x", command=root.quit)
 
 # Element Position
