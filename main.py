@@ -6,6 +6,16 @@ root.title("Calculator")
 
 # Make the window resizable false
 root.resizable(False,False)
+
+#Menu
+mainMenu=Menu()
+root.config(menu=mainMenu)
+fileMenu=Menu(mainMenu)
+mainMenu.add_cascade(label="File",menu=fileMenu)
+editMenu=Menu(mainMenu)
+mainMenu.add_cascade(label="Edit",menu=editMenu)
+viewMenu=Menu(mainMenu)
+mainMenu.add_cascade(label="View",menu=viewMenu)
 def onClick(number):
     current=e_result.get()
     e_result.delete(0,END)
