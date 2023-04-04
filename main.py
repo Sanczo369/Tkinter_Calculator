@@ -218,6 +218,12 @@ l_weight = Label(frameWeight,height= 2, width=5, text="Kg= ")
 e_weight = Entry(frameWeight, bg="#FFF", width=5, font=("Arial",10))
 btn_weight = Button(frameWeight,height= 1, width=12, text="Convert", command=btn_weight)
 
+# LabelFrame "Volume Conversion"
+frameVolume=LabelFrame(root,text="Volume Conversion",padx=5, pady=5)
+l_volume = Label(frameVolume,height= 2, width=5, text="Litry= ")
+e_volume = Entry(frameVolume, bg="#FFF", width=5, font=("Arial",10))
+btn_volume = Button(frameVolume,height= 1, width=12, text="Convert")
+
 
 
 # Element Position
@@ -275,6 +281,11 @@ frameWeight.grid(row=8, column=1)
 l_weight.grid(row=0, column=0)
 e_weight.grid(row=0, column=1, sticky=W+E)
 btn_weight.grid(row=1, columnspan=2)
+
+frameVolume.grid(row=8, column=2)
+l_volume.grid(row=0, column=0)
+e_volume.grid(row=0, column=1, sticky=W+E)
+btn_volume.grid(row=1, columnspan=2)
 
 if __name__ == '__main__':
     root.mainloop()
