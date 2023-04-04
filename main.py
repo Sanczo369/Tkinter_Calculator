@@ -102,19 +102,16 @@ def btn_x():
     current=int(e_result.get())
     e_result.delete(0,END)
     e_result.insert(0,str(round(current**2, 13)))
-
 def btn_xy():
     global equation
     global number_one
     equation="xy"
     number_one=float(e_result.get())
     e_result.delete(0,END)
-
 def btn_ex():
     current=int(e_result.get())
     e_result.delete(0,END)
     e_result.insert(0,str(round(math.e**current, 13)))
-
 def btn_sin():
     current = float(e_result.get())
     e_result.delete(0,END)
@@ -168,12 +165,26 @@ btn_n = Button(root,height= 2, width=5, text="n!", command=btn_n)
 btn_xy = Button(root,height= 2, width=5, text="x^y", command=btn_xy)
 btn_ex = Button(root,height= 2, width=5, text="e^x", command=btn_ex)
 
-frame=LabelFrame(root,text="Ttrigonometric Functions",padx=5, pady=5)
-btn_sin = Button(frame,height= 2, width=5, text="sin()", command=btn_sin)
-btn_cos = Button(frame,height= 2, width=5, text="cos()", command=btn_cos)
-btn_tg = Button(frame,height= 2, width=5, text="tg()", command=btn_tg)
-btn_ctg = Button(frame,height= 2, width=5, text="ctg()", command=btn_ctg)
-btn_sqrt = Button(frame,height= 2, width=5, text="√x", command=btn_sqrt)
+# LabelFrame "Trigonometric Functions"
+frameTrino=LabelFrame(root,text="Trigonometric Functions",padx=5, pady=5)
+btn_sin = Button(frameTrino,height= 2, width=5, text="sin()", command=btn_sin)
+btn_cos = Button(frameTrino,height= 2, width=5, text="cos()", command=btn_cos)
+btn_tg = Button(frameTrino,height= 2, width=5, text="tg()", command=btn_tg)
+btn_ctg = Button(frameTrino,height= 2, width=5, text="ctg()", command=btn_ctg)
+# btn_sqrt = Button(root,height= 2, width=5, text="√x", command=btn_sqrt)
+
+
+# LabelFrame "Length Conversion"
+frameLength=LabelFrame(root,text="Length Conversion",padx=5, pady=5)
+l_length = Label(frameLength,height= 2, width=5, text="Metry= ")
+e_length = Entry(frameLength, bg="#FFF", width=5, font=("Arial",10))
+btn_length = Button(frameLength,height= 2, width=5, text="Convert")
+l_cale = Label(frameLength,height= 2, width=5, text="Cale =")
+l_stopy = Label(frameLength,height= 2, width=5, text="Stopy =")
+l_jardy = Label(frameLength,height= 2, width=5, text="Jardy =")
+l_mile = Label(frameLength,height= 2, width=5, text="Mile =")
+l_mileM = Label(frameLength,height= 2, width=5, text="Mile Morskie =")
+
 
 # Element Position
 e_result.grid(row=0, column=0,columnspan=5, sticky=W+E)
@@ -214,13 +225,21 @@ btn_00.grid(row=6, column=2)
 btn_dot.grid(row=6, column=3)
 btn_result.grid(row=6, column=4)
 
+frameTrino.grid(row=7, columnspan=5)
 btn_sin.grid(row=0, column=0)
 btn_cos.grid(row=0, column=1)
 btn_tg.grid(row=0, column=2)
 btn_ctg.grid(row=0, column=3)
-btn_sqrt.grid(row=0, column=4)
+# btn_sqrt.grid(row=7, column=4)
 
-frame.grid(row=7, columnspan=4)
+frameLength.grid(row=8, columnspan=5)
+l_length.grid(row=0, column=0)
+e_length.grid(row=0, column=1,columnspan=3, sticky=W+E)
+btn_length.grid(row=1, columnspan=5)
+l_cale.grid(row=2, column=0)
+l_stopy.grid(row=3, column=0)
+l_jardy.grid(row=4, column=0)
+l_mile.grid(row=5, column=0)
 
 if __name__ == '__main__':
     root.mainloop()
