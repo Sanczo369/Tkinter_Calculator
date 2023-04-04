@@ -148,6 +148,22 @@ def btn_length():
     l_mile.grid(row=5, columnspan=2)
     l_mileM.grid(row=6, columnspan=2)
 
+def btn_weight():
+    tab = [35.27396, 2.204623, 0.001102, 0.000984, 0.157473]
+    current = float(e_weight.get())
+    l_uncja = Label(frameWeight, height=2, width=12, text="Uncje =" + str(round(tab[0] * current, 4)))
+    l_funty = Label(frameWeight, height=2, width=12, text="Funty =" + str(round(tab[1] * current, 4)))
+    l_tonyUSA = Label(frameWeight, height=2, width=12, text="Tony (USA) =" + str(round(tab[2] * current, 4)))
+    l_tonyUK = Label(frameWeight, height=2, width=12, text="Tony (UK) =" + str(round(tab[3] * current, 4)))
+    l_kamien= Label(frameWeight, height=2, width=12, text="Mile Morskie =" + str(round(tab[4] * current, 4)))
+
+    l_uncja.grid(row=2, columnspan=2)
+    l_funty.grid(row=3, columnspan=2)
+    l_tonyUSA.grid(row=4, columnspan=2)
+    l_tonyUK.grid(row=5, columnspan=2)
+    l_kamien.grid(row=6, columnspan=2)
+
+
 # Define Element
 e_result = Entry(root, bg="#FFF", width=5, font=("Arial",20))
 btn_1 = Button(root,height= 2, width=5, text="1", command=lambda:onClick(1))
@@ -200,7 +216,7 @@ btn_length = Button(frameLength,height= 1, width=12, text="Convert", command=btn
 frameWeight=LabelFrame(root,text="Weight Conversion",padx=5, pady=5)
 l_weight = Label(frameWeight,height= 2, width=5, text="Kg= ")
 e_weight = Entry(frameWeight, bg="#FFF", width=5, font=("Arial",10))
-btn_weight = Button(frameWeight,height= 1, width=12, text="Convert")
+btn_weight = Button(frameWeight,height= 1, width=12, text="Convert", command=btn_weight)
 
 
 
