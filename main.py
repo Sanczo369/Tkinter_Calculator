@@ -196,6 +196,12 @@ l_length = Label(frameLength,height= 2, width=5, text="Metry= ")
 e_length = Entry(frameLength, bg="#FFF", width=5, font=("Arial",10))
 btn_length = Button(frameLength,height= 1, width=12, text="Convert", command=btn_length)
 
+# LabelFrame "Weight Conversion"
+frameWeight=LabelFrame(root,text="Weight Conversion",padx=5, pady=5)
+l_weight = Label(frameWeight,height= 2, width=5, text="Kg= ")
+e_weight = Entry(frameWeight, bg="#FFF", width=5, font=("Arial",10))
+btn_weight = Button(frameWeight,height= 1, width=12, text="Convert")
+
 
 
 # Element Position
@@ -244,11 +250,15 @@ btn_tg.grid(row=0, column=2)
 btn_ctg.grid(row=0, column=3)
 # btn_sqrt.grid(row=7, column=4)
 
-frameLength.grid(row=8, columnspan=5)
+frameLength.grid(row=8, column=0)
 l_length.grid(row=0, column=0)
 e_length.grid(row=0, column=1, sticky=W+E)
 btn_length.grid(row=1, columnspan=2)
 
+frameWeight.grid(row=8, column=1)
+l_weight.grid(row=0, column=0)
+e_weight.grid(row=0, column=1, sticky=W+E)
+btn_weight.grid(row=1, columnspan=2)
 
 if __name__ == '__main__':
     root.mainloop()
