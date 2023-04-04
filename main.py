@@ -167,11 +167,13 @@ btn_abs = Button(root,height= 2, width=5, text="|x|", command=btn_abs)
 btn_n = Button(root,height= 2, width=5, text="n!", command=btn_n)
 btn_xy = Button(root,height= 2, width=5, text="x^y", command=btn_xy)
 btn_ex = Button(root,height= 2, width=5, text="e^x", command=btn_ex)
-btn_sin = Button(root,height= 2, width=5, text="sin()", command=btn_sin)
-btn_cos = Button(root,height= 2, width=5, text="cos()", command=btn_cos)
-btn_tg = Button(root,height= 2, width=5, text="tg()", command=btn_tg)
-btn_ctg = Button(root,height= 2, width=5, text="ctg()", command=btn_ctg)
-btn_sqrt = Button(root,height= 2, width=5, text="√x", command=btn_sqrt)
+
+frame=LabelFrame(root,text="Ttrigonometric Functions",padx=5, pady=5)
+btn_sin = Button(frame,height= 2, width=5, text="sin()", command=btn_sin)
+btn_cos = Button(frame,height= 2, width=5, text="cos()", command=btn_cos)
+btn_tg = Button(frame,height= 2, width=5, text="tg()", command=btn_tg)
+btn_ctg = Button(frame,height= 2, width=5, text="ctg()", command=btn_ctg)
+btn_sqrt = Button(frame,height= 2, width=5, text="√x", command=btn_sqrt)
 
 # Element Position
 e_result.grid(row=0, column=0,columnspan=5, sticky=W+E)
@@ -212,12 +214,13 @@ btn_00.grid(row=6, column=2)
 btn_dot.grid(row=6, column=3)
 btn_result.grid(row=6, column=4)
 
-btn_sin.grid(row=7, column=0)
-btn_cos.grid(row=7, column=1)
-btn_tg.grid(row=7, column=2)
-btn_ctg.grid(row=7, column=3)
-btn_sqrt.grid(row=7, column=4)
+btn_sin.grid(row=0, column=0)
+btn_cos.grid(row=0, column=1)
+btn_tg.grid(row=0, column=2)
+btn_ctg.grid(row=0, column=3)
+btn_sqrt.grid(row=0, column=4)
 
+frame.grid(row=7, columnspan=4)
 
 if __name__ == '__main__':
     root.mainloop()
