@@ -132,6 +132,22 @@ def btn_sqrt():
     current = float(e_result.get())
     e_result.delete(0,END)
     e_result.insert(0,str(round(math.sqrt(current), 13)))
+
+
+def btn_length():
+    tab=[39.37008,3.28084,1.093613,0.000621,0.00054]
+    current = float(e_length.get())
+    l_cale = Label(frameLength, height=2, width=12, text="Cale ="+str(round(tab[0]*current,4)))
+    l_stopy = Label(frameLength, height=2, width=12, text="Stopy ="+str(round(tab[1]*current,4)))
+    l_jardy = Label(frameLength, height=2, width=12, text="Jardy ="+str(round(tab[2]*current,4)))
+    l_mile = Label(frameLength, height=2, width=12, text="Mile ="+str(round(tab[3]*current,4)))
+    l_mileM = Label(frameLength, height=2, width=12, text="Mile Morskie ="+str(round(tab[4]*current,4)))
+    l_cale.grid(row=2, columnspan=2)
+    l_stopy.grid(row=3, columnspan=2)
+    l_jardy.grid(row=4, columnspan=2)
+    l_mile.grid(row=5, columnspan=2)
+    l_mileM.grid(row=6, columnspan=2)
+
 # Define Element
 e_result = Entry(root, bg="#FFF", width=5, font=("Arial",20))
 btn_1 = Button(root,height= 2, width=5, text="1", command=lambda:onClick(1))
@@ -178,12 +194,8 @@ btn_ctg = Button(frameTrino,height= 2, width=5, text="ctg()", command=btn_ctg)
 frameLength=LabelFrame(root,text="Length Conversion",padx=5, pady=5)
 l_length = Label(frameLength,height= 2, width=5, text="Metry= ")
 e_length = Entry(frameLength, bg="#FFF", width=5, font=("Arial",10))
-btn_length = Button(frameLength,height= 2, width=5, text="Convert")
-l_cale = Label(frameLength,height= 2, width=5, text="Cale =")
-l_stopy = Label(frameLength,height= 2, width=5, text="Stopy =")
-l_jardy = Label(frameLength,height= 2, width=5, text="Jardy =")
-l_mile = Label(frameLength,height= 2, width=5, text="Mile =")
-l_mileM = Label(frameLength,height= 2, width=5, text="Mile Morskie =")
+btn_length = Button(frameLength,height= 1, width=12, text="Convert", command=btn_length)
+
 
 
 # Element Position
@@ -234,12 +246,9 @@ btn_ctg.grid(row=0, column=3)
 
 frameLength.grid(row=8, columnspan=5)
 l_length.grid(row=0, column=0)
-e_length.grid(row=0, column=1,columnspan=3, sticky=W+E)
-btn_length.grid(row=1, columnspan=5)
-l_cale.grid(row=2, column=0)
-l_stopy.grid(row=3, column=0)
-l_jardy.grid(row=4, column=0)
-l_mile.grid(row=5, column=0)
+e_length.grid(row=0, column=1, sticky=W+E)
+btn_length.grid(row=1, columnspan=2)
+
 
 if __name__ == '__main__':
     root.mainloop()
