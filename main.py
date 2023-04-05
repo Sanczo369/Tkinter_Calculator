@@ -210,6 +210,21 @@ def btn_weight():
     l_tonyUK.grid(row=5, columnspan=2)
     l_kamien.grid(row=6, columnspan=2)
 
+def btn_volume():
+    tab = [4.226753, 0.264172, 0.879877, 0.219969, 0.001]
+    current = float(e_weight.get())
+    l_cupsUSA = Label(frameVolume, height=2, width=12, text="Cups(USA) =" + str(round(tab[0] * current, 4)))
+    l_galonUSA = Label(frameVolume, height=2, width=12, text="Galon(USA) =" + str(round(tab[1] * current, 4)))
+    l_kwartaUK = Label(frameVolume, height=2, width=12, text="Kwarta(UK) =" + str(round(tab[2] * current, 4)))
+    l_galonUK = Label(frameVolume, height=2, width=12, text="Galon(UK) =" + str(round(tab[3] * current, 4)))
+    l_m3 = Label(frameVolume, height=2, width=12, text="Metr^3 =" + str(round(tab[4] * current, 4)))
+
+    l_cupsUSA.grid(row=2, columnspan=2)
+    l_galonUSA.grid(row=3, columnspan=2)
+    l_kwartaUK.grid(row=4, columnspan=2)
+    l_galonUK.grid(row=5, columnspan=2)
+    l_m3.grid(row=6, columnspan=2)
+
 
 # Define Element
 
@@ -272,7 +287,7 @@ btn_weight = Button(frameWeight, height=1, width=12, text="Convert", command=btn
 frameVolume = LabelFrame(root, text="Volume Conversion", padx=5, pady=5)
 l_volume = Label(frameVolume, height=2, width=5, text="Litry= ")
 e_volume = Entry(frameVolume, bg="#FFF", width=5, font=("Arial", 10))
-btn_volume = Button(frameVolume, height=1, width=12, text="Convert")
+btn_volume = Button(frameVolume, height=1, width=12, text="Convert", command=btn_volume)
 
 # Element Position
 frameCalc.grid(row=0, columnspan=5)
